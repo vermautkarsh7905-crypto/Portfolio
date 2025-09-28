@@ -1,0 +1,375 @@
+/* style.css - Dark Zen Teal Theme (Layout Preserved) */
+
+/* Global Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Reduced transition time for a snappier feel */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Color Variables - DARK Zen Teal Theme */
+:root {
+    --primary-background-color: #1f2833; /* Deep Dark Background */
+    --secondary-background-color: #2c3e50; /* Darker Panel/Card Background */
+    --border-color: #3e5062; /* Subtle Dark Border */
+    --primary-font-color: #ecf0f1; /* Bright Text for Contrast */
+    --secondary-font-color: #bdc3c7; /* Muted Text/Subheadings */
+    --accent-color: #1abc9c; /* Zen Teal Accent */
+    --link-color: #3498db; /* Blue for links */
+    /* SVG filter for LIGHT icons on dark background */
+    --svg-filter: invert(75%) sepia(20%) saturate(1476%) hue-rotate(124deg) brightness(85%) contrast(87%);
+}
+
+/* Dark Mode Toggle - Set up for the light mode if the user toggles */
+.light {
+    --primary-background-color: #ffffff; /* Clean White */
+    --secondary-background-color: #f7f7f7; /* Off-White/Light Gray */
+    --border-color: #e0e0e0; /* Subtle Light Border */
+    --primary-font-color: #2c3e50; /* Dark Navy/Primary Text */
+    --secondary-font-color: #7f8c8d; /* Muted Grey/Secondary Text */
+    --accent-color: #1abc9c; /* Zen Teal */
+    --link-color: #3498db; /* Blue for links */
+    --svg-filter: invert(15%) sepia(18%) saturate(1600%) hue-rotate(185deg) brightness(98%) contrast(92%);
+}
+
+/* Dark Mode Toggle Class (This is the default theme, but kept for clarity) */
+.dark {
+    --primary-background-color: #1f2833;
+    --secondary-background-color: #2c3e50;
+    --border-color: #3e5062;
+    --primary-font-color: #ecf0f1;
+    --secondary-font-color: #bdc3c7;
+    --accent-color: #1abc9c;
+    --link-color: #3498db;
+    --svg-filter: invert(75%) sepia(20%) saturate(1476%) hue-rotate(124deg) brightness(85%) contrast(87%);
+}
+
+
+/* Base Body and Typography */
+body {
+    background-color: var(--primary-background-color);
+    color: var(--primary-font-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Main Layout: Single Column, Centered (Layout Preserved) */
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 20px 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Sidebar becomes a Header/Top Section */
+.sidebar {
+    background-color: var(--secondary-background-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    /* No sticky position in this new layout to keep it simple */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Darker shadow for contrast */
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid var(--accent-color); /* Teal border */
+    object-fit: cover;
+}
+
+.profile h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-font-color);
+    margin-top: 5px;
+}
+
+/* Contact Section (Horizontal layout for better use of space) */
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+    padding: 15px 0;
+    border-top: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-heading {
+    color: var(--secondary-font-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.contact a {
+    text-decoration: none;
+}
+
+.contact-value {
+    color: var(--primary-font-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Social Media Icons */
+.social-media {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.social-media img {
+    height: 30px;
+    filter: var(--svg-filter); /* Use the defined SVG filter */
+    opacity: 0.8;
+}
+
+.social-media img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Main Content Area */
+.main-content {
+    /* Use primary background here to give the effect of main content popping out */
+    background-color: var(--primary-background-color);
+    border-radius: 8px;
+    padding: 30px 0;
+}
+
+/* Navigation */
+.navbar {
+    margin-bottom: 40px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.navbar a, .navbar #change {
+    text-decoration: none;
+    color: var(--primary-font-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navbar a.active {
+    background-color: var(--accent-color);
+    color: var(--secondary-background-color); /* Darker text on accent background */
+}
+
+.navbar a:not(.active):hover, .navbar #change:hover {
+    color: var(--accent-color);
+    background-color: var(--secondary-background-color);
+}
+
+/* Section Headings */
+#aboutme h2,
+#education h2,
+#hobby h2 {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.line {
+    display: none; /* Removing the small line for a cleaner look */
+}
+
+/* About Me Content */
+#aboutme p {
+    color: var(--primary-font-color);
+    font-size: 1.1rem;
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* Academics (Timeline Layout) */
+.edtech {
+    margin-top: 35px;
+    position: relative;
+    /* Vertical line for timeline */
+    border-left: 2px solid var(--border-color);
+    padding-left: 20px;
+}
+
+.ed-first {
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 25px; /* Space for the goal circle */
+}
+
+/* Timeline marker (the 'goal' circle) */
+.goal {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    position: absolute;
+    top: 5px;
+    left: -7px; /* Align with the left border/line */
+    z-index: 5;
+    /* Use the primary background color here so the dot 'floats' over the line */
+    border: 2px solid var(--primary-background-color);
+}
+
+.liner {
+    display: none; /* Replaced by the border-left on .edtech */
+}
+
+.year {
+    font-size: 0.9rem;
+    color: var(--secondary-font-color);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.course-name {
+    color: var(--primary-font-color);
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+
+.institute {
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+.learning-outcome {
+    color: var(--secondary-font-color);
+    font-size: 1rem;
+}
+
+/* Hobby Section */
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.hobby-grid-item {
+    cursor: pointer;
+    /* Use secondary background for contrast on the grid items */
+    background-color: var(--secondary-background-color); 
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-font-color);
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Darker shadow */
+}
+
+.hobby-grid-item:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-background-color); /* Dark text on accent hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#hobby-list {
+    margin-top: 35px;
+}
+
+#hobby-list ul {
+    list-style-type: none; /* Removing default bullet points */
+    padding: 0;
+}
+
+#hobby-list ul li {
+    color: var(--primary-font-color);
+    font-size: 1.1rem;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    position: relative;
+    padding-left: 20px;
+}
+
+#hobby-list ul li:last-child {
+    border-bottom: none;
+}
+
+/* Custom bullet point */
+#hobby-list ul li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+/* Media Queries (Simplified) */
+
+/* General padding for small screens */
+@media screen and (max-width: 600px) {
+    .main-container {
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .sidebar {
+        padding: 20px;
+    }
+    
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    .profile img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .profile h2 {
+        font-size: 1.7rem;
+    }
+
+    .navbar a, .navbar #change {
+        font-size: 1rem;
+    }
+}
